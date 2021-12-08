@@ -1,7 +1,8 @@
-module.exports = function Input(type, placeholder) {
-    var input = document.createElement("input");
-    input.type = type;
-    placeholder ? input.placeholder = placeholder : "";
+module.exports = function Input(type, placeholder = null) {
 
-    return input;
-  };
+  let input = `<input type=${type} placeholder=${placeholder}} />`;
+
+  let DOMParser = new DOMParser();
+
+  return DOMParser.parseFromString(input, "text/html");
+};
